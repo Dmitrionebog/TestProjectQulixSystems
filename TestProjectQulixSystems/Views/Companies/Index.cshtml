@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TestProjectQulixSystems.Models.CompanyIndex>
+@{
+    ViewData["Title"] = "List of companies";
+}
+<h2>@ViewData["Title"]</h2>
+<p>
+    <a asp-controller="Companies" asp-action="Create">Create new company</a>
+</p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Headcount</th>
+        <th>LawForm</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Name</td>
+    <td>@item.HeadCount</td>
+    <td>@item.LawForm</td>
+    <td>
+        <a asp-controller="Companies" asp-action="Edit" asp-route-id="@item.Id">Edit company</a> |
+        <a asp-controller="Companies" asp-action="Delete" asp-route-id="@item.Id">Delete company</a>
+    </td>
+</tr>
+    }
+</table>

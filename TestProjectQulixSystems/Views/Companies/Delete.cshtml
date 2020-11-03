@@ -1,0 +1,29 @@
+﻿@model TestProjectQulixSystems.Models.Company
+@{
+    ViewData["Title"] = "Delete company";
+}
+<h2>@ViewBag.Title</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd>
+            @Model.Name
+        </dd>
+
+        <dt>LawForm</dt>
+        <dd>
+            @Model.LawForm
+        </dd>
+    </dl>
+
+    <div>
+        <form asp-controller="Companies" asp-action="Delete" method="post">
+            <div class="form-group">
+                <input type="submit" class="btn btn-outline-secondary" value="Delete" />
+            </div>
+        </form>
+        <div>
+            <a asp-controller="Companies" asp-action="Index">Return to list</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+Порядок установки и работы с приложением:
+1)Создайте и инициализируйте базу данных с помощью кода в файле SQLScript.sql
+2)Создаем в нужной директории папку publish
+3)dotnet publish -0 Release ..\publish 
+4)Создаем файл appsettings.Production.json
+5)Задаем ConnectionString в файле созданном appsettings.Production.json для нужного вам расположения б/д
+6)dotnet TestProjectQulixSystems.dll

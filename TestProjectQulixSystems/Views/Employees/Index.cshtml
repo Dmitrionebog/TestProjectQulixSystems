@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TestProjectQulixSystems.Models.Employee>
+@{
+    ViewData["Title"] = "List of employees";
+}
+<h2>@ViewData["Title"]</h2>
+<p>
+    <a asp-controller="Employees" asp-action="Create">Create new employee</a>
+</p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Surname</th>
+        <th>Name</th>
+        <th>MiddleName</th>
+        <th>Date</th>
+        <th>Position</th>
+        <th>Company</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Surname</td>
+    <td>@item.Name</td>
+    <td>@item.MiddleName</td>
+    <td>@item.Date</td>
+    <td>@item.Position</td>
+    @foreach (var company in ViewBag.Companies)
+             {
+                 if (item.CompanyId == company.Id)
+                 {
+                        <td>@company.Name</td>
+                 }
+    }
+
+    <td>
+        <a asp-controller="Employees" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+        <a asp-controller="Employees" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </td>
+</tr>
+    }
+</table>
